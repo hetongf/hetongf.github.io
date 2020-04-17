@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="结构元素： header标签：通常被放置在页面或者页面中某个区块元素的顶部，用来介绍内容或者当作导航链接栏，在一个文档中，可以定义多个&lt;header&gt;匀速。  nav标签：通常表示页面的导航。  main标签：文档主要内容  article标签：使用在相对比较独立、完整的内容模块，一般使用在博客、论坛帖子、新闻报道、用户评论。  section标签：一般用来做内容的分组，比如文章的章节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html5">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/Html5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="结构元素： header标签：通常被放置在页面或者页面中某个区块元素的顶部，用来介绍内容或者当作导航链接栏，在一个文档中，可以定义多个&lt;header&gt;匀速。  nav标签：通常表示页面的导航。  main标签：文档主要内容  article标签：使用在相对比较独立、完整的内容模块，一般使用在博客、论坛帖子、新闻报道、用户评论。  section标签：一般用来做内容的分组，比如文章的章节">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-17T10:44:24.000Z">
+<meta property="article:modified_time" content="2020-04-17T10:54:54.194Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/17/Html5/"/>
+
+
+
+
+
+  <title>Html5 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/Html5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Html5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T18:44:24+08:00">
+                2020-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="结构元素："><a href="#结构元素：" class="headerlink" title="结构元素："></a>结构元素：</h1><ul>
+<li><p>header标签：通常被放置在页面或者页面中某个区块元素的顶部，用来介绍内容或者当作导航链接栏，在一个文档中，可以定义多个<code>&lt;header&gt;</code>匀速。</p>
+</li>
+<li><p>nav标签：通常表示页面的导航。</p>
+</li>
+<li><p>main标签：文档主要内容</p>
+</li>
+<li><p>article标签：使用在相对比较独立、完整的内容模块，一般使用在博客、论坛帖子、新闻报道、用户评论。</p>
+</li>
+<li><p>section标签：一般用来做内容的分组，比如文章的章节。</p>
+</li>
+<li><p>aside标签：包含的内容不是页面的主要内容、具有独立性，是对页面的补充<br>（<code>&lt;aside&gt;</code>）一般使用在页面、文章的侧边栏、广告、友情链接等区域。<br>footer标签：一般放在页面或页面中某个区块的底部，包含版权信息、联系方式等。</p>
+</li>
+</ul>
+<h1 id="其他元素："><a href="#其他元素：" class="headerlink" title="其他元素："></a>其他元素：</h1><ul>
+<li>ruby标签：定义ruby注释（中文或字符）<br>将<code>&lt;ruby&gt;</code>标签与<code>&lt;rt&gt;</code>和<code>&lt;rp&gt;</code>标签一起使用<br><rp>标签可选，该标签定义的是当浏览器不支持“ruby元素”时显示内容。<br>progress标签：定义进度条<br>mark标签：用来标记文本<br>embed标签：用来嵌入指定的内容，比如插件</li>
+</ul>
+<h1 id="图形绘画标签"><a href="#图形绘画标签" class="headerlink" title="图形绘画标签"></a>图形绘画标签</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><ul>
+<li>canvas标签用来定义图形，是一个图形容器，常常用来进行绘图操作，要与js搭配使用。<h2 id="创建一个画布容器："><a href="#创建一个画布容器：" class="headerlink" title="创建一个画布容器："></a>创建一个画布容器：</h2></li>
+<li>width，height定义画布容器大小</li>
+<li>canvas本身没有绘图能力，绘图操作要在js里进行</li>
+</ul>
+<ol>
+<li><p>通过js获取canvas元素对象</p>
+</li>
+<li><p>创建context对象，context对象拥有多种绘制方法，一般通过调用获取的canvas元素对象下的方法getContext来创建。</p>
+</li>
+<li><p>实例线条</p>
+</li>
+<li><p>实例矩形<br>rect(x, y, width, height)<br>x，y分别为矩形左上角横纵坐标点<br>width、height为矩形的宽高</p>
+</li>
+<li><p>实例圆形<br>arc(x, y, sAngle, eAngle, counterclockwise)方法创建弧/曲线<br>x，y分别为圆的中心的横纵坐标点<br>r为圆的半径<br>sAngle起始角，以弧度计算（弧的圆形的三点钟位置是0度）<br>eAngle结束角，以弧度计算。<br>counterclockwise可选。规定顺时针还是逆时针绘图。false为顺时针，true为逆时针。</p>
+</li>
+</ol>
+<h1 id="矢量图形"><a href="#矢量图形" class="headerlink" title="矢量图形"></a>矢量图形</h1><h2 id="什么是SVG？"><a href="#什么是SVG？" class="headerlink" title="什么是SVG？"></a>什么是SVG？</h2><ul>
+<li><p>SVG指可伸缩矢量图形</p>
+</li>
+<li><p>SVG用于定义用于网络的基于矢量的图形</p>
+</li>
+<li><p>SVG是一种基于XML语法的图像格式</p>
+</li>
+<li><p>SVG图像在放大的情况下图形不会失真</p>
+<h2 id="SVG的优点"><a href="#SVG的优点" class="headerlink" title="SVG的优点"></a>SVG的优点</h2></li>
+<li><p>SVG是可伸缩的</p>
+</li>
+<li><p>文件体积较小</p>
+</li>
+<li><p>可无限放大且不会失真</p>
+</li>
+<li><p>SVG代码直接插入网页。</p>
+</li>
+<li><p>SVG代码也可以写在一个独立文件中，然后用<code>&lt;img&gt;</code>、<code>&lt;object&gt;</code>、<code>&lt;embed&gt;</code>、<code>&lt;iframe&gt;</code>等标签插入网页。</p>
+</li>
+<li><p>CS也可以使用SVG文件。</p>
+</li>
+</ul>
+<h1 id="媒体播放"><a href="#媒体播放" class="headerlink" title="媒体播放"></a>媒体播放</h1><h2 id="video标签-视频播放"><a href="#video标签-视频播放" class="headerlink" title="video标签-视频播放"></a>video标签-视频播放</h2><h3 id="video标签可选属性："><a href="#video标签可选属性：" class="headerlink" title="video标签可选属性："></a>video标签可选属性：</h3><ul>
+<li><p>autoplay：自动播放，视频就绪后马上播放。</p>
+</li>
+<li><p>controls：显示控件。</p>
+</li>
+<li><p>width：视频播放器的宽度。</p>
+</li>
+<li><p>height：视频播放器的高度。</p>
+</li>
+<li><p>loop：循环播放。</p>
+</li>
+<li><p>muted：视频静音。</p>
+</li>
+<li><p>poster：视频下载时显示的封面图，用户点击播放时隐藏。</p>
+</li>
+<li><p>preload：三个值</p>
+</li>
+<li><p>auto  页面加载，开始加载音频/视频</p>
+</li>
+<li><p>metadata  页面加载后仅加载音频/视频的元数据</p>
+</li>
+<li><p>none  页面加载后不加载音频/视频</p>
+</li>
+<li><p>src：视频的路径。</p>
+</li>
+<li><p>video支持三种视频格式：MP4、webm、ogg</p>
+</li>
+<li><p>video元素支持多个<source>元素，<source>元素可以链接不同的视频未见，浏览器会使用第一个可识别的格式</p>
+</li>
+</ul>
+<h3 id="vaudio标签-音频播放"><a href="#vaudio标签-音频播放" class="headerlink" title="vaudio标签-音频播放"></a>vaudio标签-音频播放</h3><ul>
+<li><p>支持三种音频格式：MP3、ogg、wav</p>
+</li>
+<li><p>audio标签可选属性：controls、loop、muted、preload、src（这些参数同上）</p>
+</li>
+</ul>
+<h1 id="HTML5新增input类型"><a href="#HTML5新增input类型" class="headerlink" title="HTML5新增input类型"></a>HTML5新增input类型</h1><h2 id="新增输入类型"><a href="#新增输入类型" class="headerlink" title="新增输入类型"></a>新增输入类型</h2><ul>
+<li><p>color类型：选色器</p>
+</li>
+<li><p>date类型：日期选择器</p>
+</li>
+<li><p>datetime-local类型：选择一个日期和时间</p>
+</li>
+<li><p>email类型输入格式为email模式，自动验证输入值是否为email</p>
+</li>
+<li><p>month类型：选择一个月份</p>
+</li>
+<li><p>number类型：规定输入值为数字</p>
+</li>
+<li><p>max规定允许的最大值</p>
+</li>
+<li><p>min规定允许的最小值</p>
+</li>
+<li><p>step规定每一段数字间隔</p>
+</li>
+<li><p>range类型：包含一定范围内数字值的输入域</p>
+</li>
+<li><p>max规定允许的最大值</p>
+</li>
+<li><p>min规定允许的最小值</p>
+</li>
+<li><p>step规定每一段数字间隔</p>
+</li>
+<li><p>search类型：用于搜索域</p>
+</li>
+<li><p>time类型：选择一个时间</p>
+</li>
+<li><p>url类型：规定输入值为url格式</p>
+</li>
+<li><p>week：选择周和年</p>
+</li>
+</ul>
+<h1 id="常用表单属性"><a href="#常用表单属性" class="headerlink" title="常用表单属性"></a>常用表单属性</h1><ul>
+<li><p>autocomplete属性：该属性规定form或input域是否有自动完成功能，当用户在输入域输入时提示之前输入的内容选项。（注：该属性适用于<code>&lt;form&gt;</code>标签，以及以下<code>&lt;input&gt;</code>标签：text、search、url、tel、email、password、datepickers、range以及color）</p>
+</li>
+<li><p>autofocus属性：该属性规定在页面加载时，该input框自动获得焦点</p>
+</li>
+<li><p>width和height属性：设置宽高（注意：该属性只适用于image类型的input标签）</p>
+</li>
+<li><p>multiple属性：规定<code>&lt;input&gt;</code>元素可选择多个值（注意：该属性适用于email和file类型，提交多个邮箱时用逗号隔开）</p>
+</li>
+<li><p>pattern属性：使用一个正则表达式用于验证input框的值（注意：该属性适用于以下类型的<code>&lt;input&gt;</code>标签：text、search、url、tel、email和password）</p>
+</li>
+<li><p>placeholder属性：该属性给输入框提供输入提示（注意：该属性适用于以下类型的<code>&lt;input&gt;</code>标签：text、search、url、tel、email和password）</p>
+</li>
+<li><p>required属性：表示该输入框必须填写，不能为空（注意：该属性适用于以下类型的<code>&lt;input&gt;</code>标签：text、search、url、tel、email和password、datepickers、number、checkbox、radio以及file）</p>
+</li>
+</ul>
+<h1 id="web本地储存"><a href="#web本地储存" class="headerlink" title="web本地储存"></a>web本地储存</h1><h2 id="什么是HTML5web存储？"><a href="#什么是HTML5web存储？" class="headerlink" title="什么是HTML5web存储？"></a>什么是HTML5web存储？</h2><ul>
+<li><p>HTML5web存储可以在本地储存用户的浏览数据。web存储相对cookie更加的安全与快速，它的数据不会保存在服务器上。他也可以存储大量的数据，而不影响网站的性能。</p>
+<h2 id="客户端存储数据值localStorage"><a href="#客户端存储数据值localStorage" class="headerlink" title="客户端存储数据值localStorage"></a>客户端存储数据值localStorage</h2></li>
+<li><p>用于长久保存网站的数据，保存的数据没有过期时间，可手动删除</p>
+<h2 id="常用API如下："><a href="#常用API如下：" class="headerlink" title="常用API如下："></a>常用API如下：</h2></li>
+<li><p>保存数据：localStorage.setItem(key, value);</p>
+</li>
+<li><p>读取数据：localStorage.setItem(key);</p>
+</li>
+<li><p>删除单个数据：localStorage.removeItem(key);</p>
+</li>
+<li><p>删除所有数据：localStorage.clear();</p>
+</li>
+<li><p>得到某个索引的key：localStorage.key(index);</p>
+</li>
+<li><p>提示：键值对通常以字符串储存</p>
+<h2 id="客户端储存数据值sessionStorage"><a href="#客户端储存数据值sessionStorage" class="headerlink" title="客户端储存数据值sessionStorage"></a>客户端储存数据值sessionStorage</h2></li>
+<li><p>sessionStorage储存的数据在用户关闭浏览器窗口后，数据会被删除</p>
+</li>
+<li><p>API如localStorage相同</p>
+</li>
+<li><p>cookie、localStorage以及sessionStorage的区别：</p>
+<h2 id="共同点："><a href="#共同点：" class="headerlink" title="共同点："></a>共同点：</h2></li>
+<li><p>都是保存在浏览器端，切实同源共享的</p>
+<h2 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h2></li>
+<li><p>cookie数据会在浏览器和服务器之间进行传递，每次http请求都会携带cookie，而sessionStorage和localStorage仅在客户端保存，不参与服务器通信。</p>
+</li>
+<li><p>存储大小限制也不同，cookie数据不能超过4k，sessionStorage和localStorage的大小一般是5M。</p>
+</li>
+<li><p>数据的周期时间不同，cookie数据在设置的过期时间内一直有效，sessionStorage数据会在当前浏览器窗口时清除，localStorage数据则始终存在，即使关闭浏览器或窗口，知道手动清除数据。</p>
+</li>
+<li><p>cookie相比其他两个安全性不高，容易被拦截获取。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/17/CSS%E6%8F%AD%E7%A7%98/" rel="next" title="CSS揭秘">
+                <i class="fa fa-chevron-left"></i> CSS揭秘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结构元素："><span class="nav-number">1.</span> <span class="nav-text">结构元素：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他元素："><span class="nav-number">2.</span> <span class="nav-text">其他元素：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图形绘画标签"><span class="nav-number">3.</span> <span class="nav-text">图形绘画标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义："><span class="nav-number">3.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个画布容器："><span class="nav-number">3.2.</span> <span class="nav-text">创建一个画布容器：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#矢量图形"><span class="nav-number">4.</span> <span class="nav-text">矢量图形</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SVG？"><span class="nav-number">4.1.</span> <span class="nav-text">什么是SVG？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG的优点"><span class="nav-number">4.2.</span> <span class="nav-text">SVG的优点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#媒体播放"><span class="nav-number">5.</span> <span class="nav-text">媒体播放</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#video标签-视频播放"><span class="nav-number">5.1.</span> <span class="nav-text">video标签-视频播放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#video标签可选属性："><span class="nav-number">5.1.1.</span> <span class="nav-text">video标签可选属性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vaudio标签-音频播放"><span class="nav-number">5.1.2.</span> <span class="nav-text">vaudio标签-音频播放</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5新增input类型"><span class="nav-number">6.</span> <span class="nav-text">HTML5新增input类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新增输入类型"><span class="nav-number">6.1.</span> <span class="nav-text">新增输入类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用表单属性"><span class="nav-number">7.</span> <span class="nav-text">常用表单属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web本地储存"><span class="nav-number">8.</span> <span class="nav-text">web本地储存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是HTML5web存储？"><span class="nav-number">8.1.</span> <span class="nav-text">什么是HTML5web存储？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端存储数据值localStorage"><span class="nav-number">8.2.</span> <span class="nav-text">客户端存储数据值localStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用API如下："><span class="nav-number">8.3.</span> <span class="nav-text">常用API如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端储存数据值sessionStorage"><span class="nav-number">8.4.</span> <span class="nav-text">客户端储存数据值sessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共同点："><span class="nav-number">8.5.</span> <span class="nav-text">共同点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别："><span class="nav-number">8.6.</span> <span class="nav-text">区别：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

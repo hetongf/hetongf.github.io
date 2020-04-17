@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="选择符： 匹配某些字符开头的属性值，在等号前面加上插入符（^）  匹配某些字符结尾的属性值，在等号面前加上美元符号（$）  匹配包含某些字符的属性值，在等号前面加上星号（*）  匹配以空格分隔的字符串中的属性值，在等号前面加上波浪号（~）  伪类的先后次序：:link和:visited应该排在前面，然后才是与用户交互相关的。  伪类:target匹配一个有ID属性的元素。  nth-child可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/CSS/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="选择符： 匹配某些字符开头的属性值，在等号前面加上插入符（^）  匹配某些字符结尾的属性值，在等号面前加上美元符号（$）  匹配包含某些字符的属性值，在等号前面加上星号（*）  匹配以空格分隔的字符串中的属性值，在等号前面加上波浪号（~）  伪类的先后次序：:link和:visited应该排在前面，然后才是与用户交互相关的。  伪类:target匹配一个有ID属性的元素。  nth-child可以">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-17T09:06:37.000Z">
+<meta property="article:modified_time" content="2020-04-17T10:41:14.591Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/17/CSS/"/>
+
+
+
+
+
+  <title>CSS | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T17:06:37+08:00">
+                2020-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="选择符："><a href="#选择符：" class="headerlink" title="选择符："></a>选择符：</h1><ul>
+<li><p>匹配某些字符开头的属性值，在等号前面加上插入符（^）</p>
+</li>
+<li><p>匹配某些字符结尾的属性值，在等号面前加上美元符号（$）</p>
+</li>
+<li><p>匹配包含某些字符的属性值，在等号前面加上星号（*）</p>
+</li>
+<li><p>匹配以空格分隔的字符串中的属性值，在等号前面加上波浪号（~）</p>
+</li>
+<li><p>伪类的先后次序：:link和:visited应该排在前面，然后才是与用户交互相关的。</p>
+</li>
+<li><p>伪类:target匹配一个有ID属性的元素。</p>
+</li>
+<li><p>nth-child可以交替为表格行应用样式。</p>
+</li>
+<li><p>有许多针对type值的伪类，这些伪类可以反映表单控件的某种状态。</p>
+</li>
+</ul>
+<h1 id="特殊性："><a href="#特殊性：" class="headerlink" title="特殊性："></a>特殊性：</h1><ul>
+<li>层叠机制的重要级别从高到低：<blockquote>
+<blockquote>
+<ol>
+<li>标注为！Import的用户样式</li>
+<li>标注为！Import的作者样式</li>
+<li>作者样式</li>
+<li>用户样式</li>
+<li>浏览器（或用户代理）的默认样式</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+<li>任何选择符的特殊性都对应如下4个级别，即a,b,c,d：<blockquote>
+<blockquote>
+<ol>
+<li>行内样式，a为1</li>
+<li>b等于ID选择符的数目</li>
+<li>c等于类选择符、伪类选择符及属性选择符的数目</li>
+<li>d等于类型选择符和伪元素选择符的数目<br>选择符的特殊性可能会使我们需要特殊突出的内容被覆盖，因此我们需要尽量提高特殊性，例如给我们需要的组件上加上更厉害的特殊符。或者从一开始简化选择符，降低特殊性。</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h1 id="为文档应用样式："><a href="#为文档应用样式：" class="headerlink" title="为文档应用样式："></a>为文档应用样式：</h1><ul>
+<li><p>把样式放在<code>&lt;style&gt;</code>元素中</p>
+</li>
+<li><p>用link引用外部CSS</p>
+</li>
+<li><p>还可以在<code>&lt;style&gt;</code>中使用<code>@import</code>指令加载外部CSS文件</p>
+</li>
+<li><p>使用link或style添加多个样式表或样式块时，声明的次序就是出现的次序。</p>
+</li>
+</ul>
+<h1 id="可见格式化模型："><a href="#可见格式化模型：" class="headerlink" title="可见格式化模型："></a>可见格式化模型：</h1><ul>
+<li><p>Box-sizing默认值为content-box，若设置为border-box时，此时的width属性是元素所有可见部分的宽度。</p>
+</li>
+<li><p>如果给类内容里添加内边距，可以设置一个不同的box-sizing值修改盒子宽度的计算方式。</p>
+</li>
+<li><p>块级盒子会沿垂直方向堆叠，盒子在垂直方向上的间距又它们的上，下外边距决定的。行内盒子是沿文本流水平排列的，也会随文本换行而换行，它们之间的水平间距可以用过水平方向的内边距，外框和外边距来调节。</p>
+</li>
+</ul>
+<h1 id="网页排版："><a href="#网页排版：" class="headerlink" title="网页排版："></a>网页排版：</h1><ul>
+<li><p>几乎所有浏览器中font-size的默认大小都是16px<br>Font-weigt设置文本粗细，可以使用关键字也可以用数字值，都是一百的整数倍，最大为900。</p>
+</li>
+<li><p>主体内容的文本行长通常是45~75个字符，平均值为66个字符。<br>使用相邻组合符设置text-index属性如：p+p{text-index：}增加观看效果。<br>手工断词换行可用&amp;shy软连字符。</p>
+</li>
+<li><p>自动连字功能</p>
+<blockquote>
+<blockquote>
+<ol>
+<li>在html元素中设置语言代码<code>&lt;hrml lang=”en”&gt;</code></li>
+<li>将相关元素的hyphens属性值设为auto。</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+<li><p>跨栏操作：让某些元素流出文本外，如文章标题和最后一段。可用column-span:all以关闭跨栏特性。</p>
+</li>
+<li><p>@font-face规则通过它可以指定浏览器下载Web字体服务器地址，以及如何在样式表中引用该字体。可以接受以下声明：</p>
+<blockquote>
+<blockquote>
+<ol>
+<li>font-family:必需，字体族的名称</li>
+<li>src：必需，URL或URL列表，用于下载字体</li>
+<li>font-weigth:可选的字体粗细，默认值为normal</li>
+<li>font-style：可选字体样式，默认值为normal</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h1 id="漂亮的盒子："><a href="#漂亮的盒子：" class="headerlink" title="漂亮的盒子："></a>漂亮的盒子：</h1><ul>
+<li>添加背景颜色再添加图片背景以防图片加载失败。</li>
+</ul>
+<h2 id="图片格式："><a href="#图片格式：" class="headerlink" title="图片格式："></a>图片格式：</h2><ol>
+<li>JPEG：不支持透明设置</li>
+<li>PNG：适合图标、插图等小尺寸文件，支持阿尔法透明度设置</li>
+<li>GIF</li>
+<li>SVG：可以直接嵌入网页中，也可以作为资源引用；可以作为背景图，也可以作为内容图</li>
+<li>WebP：谷歌开发的一种新图片格式</li>
+</ol>
+<ul>
+<li>Background-position不能一个关键字加一个长度值。</li>
+<li>Box-shadow使用inset关键字可以为元素设置内阴影。</li>
+<li>Object-fit属性可以像使用background-size一样，保持元素的宽高比：<blockquote>
+<blockquote>
+<ol>
+<li>object-fit默认值为fill意味着图片内容会在必要时拉伸以填满容器，因此可能破坏宽高比</li>
+<li>cover和contain与background-size对应的关键字相同</li>
+<li>scale-down会自动从none和contain中选一个，哪个结果尺寸小就用哪个</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h2 id="内容布局："><a href="#内容布局：" class="headerlink" title="内容布局："></a>内容布局：</h2><ul>
+<li><p>每一个评注的组件都是aside组件，然后对其使用绝对定位，再通过负外边距来移动元素。</p>
+</li>
+<li><p>我们希望某元素总是与外部元素保持一定距离，但又不给任何元素设置大小，可以只指定其右、下、左边的偏移。</p>
+</li>
+<li><p>若我们希望把两个元素垂直居中，需要让这两个元素都参照同一个“中心点”:vertical-align:middle</p>
+</li>
+<li><p>伪元素会创建一个空格，导致内容向右偏移几个像素，若想实现真正意义上的居中，通过给伪元素应用外负边距-.25em可以抵消空格。</p>
+</li>
+<li><p>通过Flexbox可以轻松实现多个元素垂直居中。</p>
+</li>
+</ul>
+<h2 id="表单："><a href="#表单：" class="headerlink" title="表单："></a>表单：</h2><ul>
+<li><p>字段名用label元素表示，用于给表单添加结构。</p>
+</li>
+<li><p>在表单中设置border属性通常会去掉操作系统默认添加的边框，以及文本输入框的内阴影。</p>
+</li>
+<li><p>使用buttom来创建按钮可以在里面嵌入其他元素来应用样式。</p>
+</li>
+<li><p>可以使用placeholder属性提供示例输入。</p>
+</li>
+<li><p>要实现更高级的表单的布局结构，要用到flexbox布局。</p>
+</li>
+<li><p>.field和.flexbox都是作为选择符的前缀。</p>
+</li>
+<li><p>复选框可以使用无序列表来完成。</p>
+</li>
+</ul>
+<h1 id="变换、过度与动画"><a href="#变换、过度与动画" class="headerlink" title="变换、过度与动画"></a>变换、过度与动画</h1><ul>
+<li><p>变换改变的是元素所在的坐标系统。</p>
+</li>
+<li><p>::marker伪元素可以控制列表记号的样式，用counter-属性＋伪元素也可以。<br>声明多个变换以后，如果想增加新变化，不能直接在原来的基础上添加，而要重新声明整套变换。</p>
+</li>
+<li><p>变换动画最好使用transition-property指定需要过渡的元素，再对它们设置时间，这样表示过渡元素的时间是公共的。</p>
+</li>
+<li><p>缓动由transition-timing-function属性来指定，关键字有：linear、ease-in开始慢后来快、ease-out开始快后来慢、ease-in-out两头慢中间快。</p>
+</li>
+<li><p>关键帧中的属性没有任何特殊性，不允许添加!important。</p>
+</li>
+<li><p>要定义透视，先得确定用户距离这个元素有多远。离得越近变化越大，离得越远变化越小。默认的距离是无穷远，因此不会发生明显的变化。</p>
+</li>
+</ul>
+<h1 id="高级特效："><a href="#高级特效：" class="headerlink" title="高级特效："></a>高级特效：</h1><ul>
+<li><p>CSS Shapes包含两组新属性，一组用于设置影响盒子中内容的形状，另一组用于设置影响元素周边内容流的形状。</p>
+</li>
+<li><p>Shape-outside属性只能应用给浮动元素。</p>
+</li>
+<li><p>通过shape-outside可以实现文本流环绕效果。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/17/HTML/" rel="next" title="HTMLj基础">
+                <i class="fa fa-chevron-left"></i> HTMLj基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/17/CSS%E5%9F%BA%E7%A1%80/" rel="prev" title="CSS基础">
+                CSS基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#选择符："><span class="nav-number">1.</span> <span class="nav-text">选择符：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊性："><span class="nav-number">2.</span> <span class="nav-text">特殊性：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为文档应用样式："><span class="nav-number">3.</span> <span class="nav-text">为文档应用样式：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可见格式化模型："><span class="nav-number">4.</span> <span class="nav-text">可见格式化模型：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网页排版："><span class="nav-number">5.</span> <span class="nav-text">网页排版：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#漂亮的盒子："><span class="nav-number">6.</span> <span class="nav-text">漂亮的盒子：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片格式："><span class="nav-number">6.1.</span> <span class="nav-text">图片格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容布局："><span class="nav-number">6.2.</span> <span class="nav-text">内容布局：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单："><span class="nav-number">6.3.</span> <span class="nav-text">表单：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变换、过度与动画"><span class="nav-number">7.</span> <span class="nav-text">变换、过度与动画</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级特效："><span class="nav-number">8.</span> <span class="nav-text">高级特效：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
