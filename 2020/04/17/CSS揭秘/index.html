@@ -87,7 +87,7 @@
 <meta property="og:description" content="代码可维护性的最大要素是尽量减少改动时要编辑的地方。  当某些值互相依赖时，就应该把它们的相互关系用代码表达出来。                                                                      把长度值改为em单位，效果值可依赖父级字号进行缩放。  把长度值改为rem单位，效果值可依赖根级字号（&lt;html&gt;元素的字号&gt;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-17T10:39:15.000Z">
-<meta property="article:modified_time" content="2020-04-17T10:40:16.985Z">
+<meta property="article:modified_time" content="2020-04-17T11:26:42.515Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -328,6 +328,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Background:url() no-repeat #58a;</span><br><span class="line">Background-position:right 20px bottom 10px;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>最后还需要回退方案，如果遇到不支持该属性扩展语法的浏览器，背景图片会紧贴在左上角。对此，把老套定位置bottom right写进background的简写属性中。</li>
 </ul>
@@ -338,18 +339,20 @@
 </blockquote>
 </blockquote>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Background:url() no-repeat bottom right #58a;</span><br><span class="line">Background-position:right 20px bottom 10px;</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>如果设置距离的某个角偏移量时，偏移量与容器的内边距一致，使用background-origin。</li>
 </ol>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>例如:</p>
+<p>例如:<br><code>background-origin:content-box;</code></p>
 </blockquote>
 </blockquote>
 </blockquote>
 <ul>
-<li>background-origin:content-box;边角关键字将与内容区的边缘作为基准。</li>
+<li>边角关键字将与内容区的边缘作为基准。</li>
 </ul>
 <ol start="3">
 <li>若以定位的相反反向，background-position:calc(100%-xpx) calc(100%-ypx);</li>

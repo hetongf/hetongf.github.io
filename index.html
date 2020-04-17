@@ -626,6 +626,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Background:url() no-repeat #58a;</span><br><span class="line">Background-position:right 20px bottom 10px;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>最后还需要回退方案，如果遇到不支持该属性扩展语法的浏览器，背景图片会紧贴在左上角。对此，把老套定位置bottom right写进background的简写属性中。</li>
 </ul>
@@ -636,18 +637,20 @@
 </blockquote>
 </blockquote>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Background:url() no-repeat bottom right #58a;</span><br><span class="line">Background-position:right 20px bottom 10px;</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>如果设置距离的某个角偏移量时，偏移量与容器的内边距一致，使用background-origin。</li>
 </ol>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>例如:</p>
+<p>例如:<br><code>background-origin:content-box;</code></p>
 </blockquote>
 </blockquote>
 </blockquote>
 <ul>
-<li>background-origin:content-box;边角关键字将与内容区的边缘作为基准。</li>
+<li>边角关键字将与内容区的边缘作为基准。</li>
 </ul>
 <ol start="3">
 <li>若以定位的相反反向，background-position:calc(100%-xpx) calc(100%-ypx);</li>
@@ -1562,7 +1565,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/17/HTML/" itemprop="url">HTMLj基础</a></h1>
+                <a class="post-title-link" href="/2020/04/17/HTML/" itemprop="url">HTML基础</a></h1>
         
 
         <div class="post-meta">
