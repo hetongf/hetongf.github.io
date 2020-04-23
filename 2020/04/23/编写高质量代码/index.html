@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章 从网站重构说起 打造高质量的前端代码，提高代码的可维护性——精简、重用、有序。  第二章 团队合作 精一行，通十行。  增加代码可读性——注释。  重用性需提高，分为公共组件为私有组件，代码模块化。公共组件不能轻易修改，因为影响大，所以一般只提供“读”的权限。  磨刀不误砍柴工——前期的构思很重要。构思主要包括规范的制定、公共组件的设计和复杂功能的技术方案等。一般来说，前期构思占整个项目3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编写高质量代码">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 从网站重构说起 打造高质量的前端代码，提高代码的可维护性——精简、重用、有序。  第二章 团队合作 精一行，通十行。  增加代码可读性——注释。  重用性需提高，分为公共组件为私有组件，代码模块化。公共组件不能轻易修改，因为影响大，所以一般只提供“读”的权限。  磨刀不误砍柴工——前期的构思很重要。构思主要包括规范的制定、公共组件的设计和复杂功能的技术方案等。一般来说，前期构思占整个项目3">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-23T08:13:37.000Z">
+<meta property="article:modified_time" content="2020-04-23T08:25:29.699Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/23/编写高质量代码/"/>
+
+
+
+
+
+  <title>编写高质量代码 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/23/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">编写高质量代码</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-23T16:13:37+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一章-从网站重构说起"><a href="#第一章-从网站重构说起" class="headerlink" title="第一章 从网站重构说起"></a>第一章 从网站重构说起</h1><ul>
+<li>打造高质量的前端代码，提高代码的可维护性——精简、重用、有序。</li>
+</ul>
+<h1 id="第二章-团队合作"><a href="#第二章-团队合作" class="headerlink" title="第二章 团队合作"></a>第二章 团队合作</h1><ul>
+<li><p>精一行，通十行。</p>
+</li>
+<li><p>增加代码可读性——注释。</p>
+</li>
+<li><p>重用性需提高，分为公共组件为私有组件，代码模块化。公共组件不能轻易修改，因为影响大，所以一般只提供“读”的权限。</p>
+</li>
+<li><p>磨刀不误砍柴工——前期的构思很重要。构思主要包括规范的制定、公共组件的设计和复杂功能的技术方案等。一般来说，前期构思占整个项目30%~60%的时间都算是正常的</p>
+</li>
+</ul>
+<h1 id="第三章-高质量的HTML"><a href="#第三章-高质量的HTML" class="headerlink" title="第三章 高质量的HTML"></a>第三章 高质量的HTML</h1><ul>
+<li><p>CSS只是Web标准的一部分，在HTML、CSS、JS三个元素中，HTML才是最重要的，结构才是重点，样式是用来修饰结构的。正确的做法是，先确定HTML，确定语义的标签，再来选用合适的CSS。</p>
+</li>
+<li><p>判断语义标签是否良好的方法：去掉样式，看网页结构是否组织良好有序，是否仍然有很好的可读性。语义良好的网页去掉样式后结构依然很清晰。</p>
+</li>
+<li><p>一个语义良好的页面，h标签应该是完整有序没有断层的，也就是说要按照h1、h2、h3、h4这样的次序排下来，不要出现类似h1、h3、h4漏掉h2的情况。</p>
+</li>
+<li><p>当页面内标签无法满足设计需要时，才会适当添加div和span等语义标签来辅助实现。</p>
+</li>
+</ul>
+<h1 id="第四章-高质量的CSS"><a href="#第四章-高质量的CSS" class="headerlink" title="第四章 高质量的CSS"></a>第四章 高质量的CSS</h1><ul>
+<li><p>组织CSS的方法：base.css+common.css+page.css.在一般情况下任何一个网页的最终表现都是由这三者共同完成的，这三者不是并列结构，而是层叠结构</p>
+</li>
+<li><ol>
+<li><p>base层</p>
+<p>这一层位于三者的最底层，提供CSS reset功能和粒度最小的通用类——原子类。这一层会被所有页面引用，是页面样式所需依赖的最底层，这一层与具体UI无关，无论何种风格的设计都可以引用它，所以base层要力求精简和通用。如果采用CSS控制页面样式比喻为建房子，这一层的核心职能是为房子打好地基（CSS reset），并将建房用的砖块（原子类）准备充足，因为所有的房子都要打地基，也都需要砖块，所以base层具有高度可移植性，不同设计风格的网站都可以使用同一个base层，因为这一层的内容很少，所以可以简单地放在一个文件。</p>
+<p> base层相对稳定，基本上不需要维护。</p>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><p>common层</p>
+<p>这一层位于中间，提供组件级的CSS类，提到组件，就不得不将“模块化”。“模块化”可以从样式和行为两个层面来考察，与common层相关的样式是模块化。我们可以将页面内的元素拆分成一小块一小块功能和样式相对独立的小“模块”，这些“模块”有些是很少重复的，有些是会大量重复的，我们可以将大量重复的“模块”视为一个组件。我们从页面里尽可能将组件提取出来，放在common层里。common层就相当于于MVC模式中的M。为了保证重用性和灵活性，M需要尽可能将内部实现封装，对可能会经常变化的部分提供灵活的接口。<br>common层就像建房时用到的门窗，不用风格的房子会用到不同样式的门窗，各个房间用到的门窗的数量和位置可以不用，但样式相同。门窗有自己的小元件，比如玻璃、门窗、门板等，可以移动增减，但本身的构造是相对稳定的。不用风格的房子就好比不同风格的网站，房子选用的的门窗就好比这个网站选用的UI组件。门窗最好与整个房子的风格保持一致，同样，网站最好让UI组件的风格保持相同。UI组件网站中的单位，在网站内部可以高度重用，但不同的网站可能会用不同的UI组件。</p>
+<p>所以,common层是网站级的，不同的网站有不同的common层，同一个网站只有一个common层。common层是放在一个common.css文件里，还是按照功能划分放在比如common_fbrm.cssx common_imsgelidt.css的多个文件里，需要根据网站规模来决定。在团队合作中，common层由一个人负责，统一管理。</p>
+</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><p>page层</p>
+<p>网站中高度化用的模块，我们把它们视为组件，放在common层；非极度重用的模块，可以把它们放在page层，page层位于最高层，提供页面级的样式，同样以建房为比喻，page层就好比是房间内的装饰画，不同的房间张贴的装饰画各不相同。它不像砖块，所有房子都相同；也不像门窗。同一房子里都相同，它对重用性没有要求，可根据各个房间布置的需要任意张贴。</p>
+<p>page层是页面级的，每个页面都可能会有自己的page层，CSS.page层文件可以用<code>&lt;style type=”test/CSS”&gt;</code>标签内置于页面中，但这么做没有将样式彻底从HTML文件中分离出来，也可以根据页面放在诸如page1.css、page2.css的文件里，这样做可以将样式很好地从HTML中分离出来，但可能会产生大量的CSS文件，有些CSS文件可能会非常小，带来的维护很麻烦。如果网站规模不会过于庞大，建议将网站内所有page层的代码放在一个page.css文件里，根据页面配上注释，分块书写，便于维护。</p>
+</li>
+</ol>
+</li>
+<li><p>Base.css一般包括cssrcsct和通用原子类，比如设置一些常用的清除浮动、宽度、高度等class可以参考一些前端框架，力图YUI、bootstrap等等。</p>
+</li>
+<li><p>拆分模块技巧：模块与模块之间尽量不要包含相同的部分，如果没有相同部分，应将它们提取出来，拆分成一个独立的模块。模块应在保证数量下尽可能少的原则下，做到尽可能简单，以提高重用性。</p>
+</li>
+<li><p>团队开发人员多，可在classname前加前缀。</p>
+</li>
+<li><p>如果不确定模块的上下margin特别稳定，最好不要将它们写到模块的类里，而是使用类的组合，单独为上下margin用于边距的原子类。模块最好不要混用。</p>
+</li>
+<li><p>普通标签权重1，class权重10，id权重100。</p>
+</li>
+<li><p>为了保证样式容易被覆盖，提高可维护性，CSS选择符需要保证权重尽可能低。</p>
+</li>
+<li><p>CSS sprite的最大好处就是减少HTTP请求数，减轻服务器的压力，但它却需要付出“降低开发效率”和“增大维护难度”的代价。对于流量并不大的网站来说，CSS sprite带来的好处并不明显，而它付出的代价却很大。所以是否使用CSS sprite主要取决于网站流量。<br>编码风格：推荐一行书写，能减少文件大少（因为调试工具多，所以忽略易读性）</p>
+</li>
+<li><p>Position和float的注意点：<br>另一个有趣的现象是position:absolute和float会隐式改变display类型，不论之前的什么类型的元素，这要设置这两个的任意一个，都会让元素display:inline-block的方式显示；可以设置宽，默认宽度并不占满父元素。不管怎么设置也仍然无效。Position:relative却不会隐式改变display类型。</p>
+</li>
+<li><p>Z:index:</p>
+<p>关于z-index有个问题，就是Flash和IE6 select元素的显示问题。Flash插入网页中，如果和其他元素重叠。无论我们如何设置z-index,Flash都会浮在其他元素之上。浏览器解析网页时，辉县判断元素的类型，如果是窗口类型的，会优先非窗口类型的元素，显示在页面最顶端，如果是同属非窗口类型的，才回去判断z-index的大小。</p>
+<p>Flash嵌入网页中，有个wmode属性，用于指定窗口模式，其值有window（窗口）、opaque（非窗口不透明）、transparent（非窗口透明）三种，其中window表示Flash以窗口形式显示，opaque和transparent表示Flash以非窗口形式显示，如果不显示设置wmode属性，默认wmode为window，所以，如果我们没有设置wmode值，或者设置wmode为window的话，Flash足以窗口类型显示的，M z轴的优先级是高于所有非窗口类型元素的吗，无论我们如何设置z-index也不会有任何效果。解决办法是设置wmode属性为opaque或transparent。</p>
+</li>
+</ul>
+<h1 id="第五章-高质量的Javascript"><a href="#第五章-高质量的Javascript" class="headerlink" title="第五章 高质量的Javascript"></a>第五章 高质量的Javascript</h1><ul>
+<li><p>命名冲突，全局变量滥用解决办法之一：用匿名函数将脚本包起来，让变量的作用域控制在匿名函数之内。</p>
+</li>
+<li><p>无论是多人的直接团队合作，还是一个人的间接团队合作，都需要良好的可维护性，让JS不产生冲突，都需要避免全局变量的泛滥，合理使用命名空间以及为代码添加必要的注释。</p>
+</li>
+<li><p>给程序一个统一入口——window.onload和DOMReady可以用初始化函数，一般命名为init()</p>
+</li>
+<li><p>看似以及非常完美了，但还存在一个问题，window的onload事件要求网页内所有的元素全部加装完成后才会触发。如果网页内有很大的照片，加载时间非常长，那么我们的初始化函数会延长很久才会执行。在网速较慢的情况下，这样的延时往往是不可接受的。为了解决这个问题，很多JS框架提供了DOMReady事件代替window.onload()，这两者的作用很像，但和window.onload不同的是，window.onload需要当前页面完全加载完成时才会触发，包括图片，Flash等多媒体。DOMReady只判断页面内所有的DOM节点是否全部生成，至于节点的内容是否加载完成，它并不关心。所以DOMReady比window.onload更适合用来调用初始化函数。</p>
+<h2 id="Javascript的分层概念和javascript库"><a href="#Javascript的分层概念和javascript库" class="headerlink" title="Javascript的分层概念和javascript库"></a>Javascript的分层概念和javascript库</h2></li>
+<li><p>分层可以让代码组织条例更清晰，减少冗余，提高代码重用率，与CSS类似，从上到下依次是page层、common层、base层。</p>
+</li>
+</ul>
+<ol>
+<li><p>base层</p>
+<p>  位于三层的最底端，这一层有两个职责，职责一是封装不用浏览器javascript的差异，提供统一的接口，我们可以依靠它来完成跨浏览器兼容的工作。职责二是扩展javascript语言底层提供的接口，让它提供更多更为易用的接口。base层的功能是给common层和page层提供接口。</p>
+</li>
+<li><p>common层</p>
+<p> 位于三层中间，依赖于base层提供的接口，common层提供可供复用的组件，它是典型的mvc模式用的M和页面的具体功能没有直接关系。common层的功能是给page层提供组件。</p>
+</li>
+<li><p>page层 </p>
+<p> 位于三层的最顶端。这一层和页面里的具体功能需求直接相关，是mvc模式中的c。page层依赖base层和conmon层，page层的功能是完成页面内的功能需求。</p>
+</li>
+</ol>
+<ul>
+<li>事件冒泡：javascript对先触发子容器监听事件，后触发父容器监听事件的现象称为事件冒泡。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/17/Html5/" rel="next" title="Html5">
+                <i class="fa fa-chevron-left"></i> Html5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-从网站重构说起"><span class="nav-number">1.</span> <span class="nav-text">第一章 从网站重构说起</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-团队合作"><span class="nav-number">2.</span> <span class="nav-text">第二章 团队合作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-高质量的HTML"><span class="nav-number">3.</span> <span class="nav-text">第三章 高质量的HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-高质量的CSS"><span class="nav-number">4.</span> <span class="nav-text">第四章 高质量的CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-高质量的Javascript"><span class="nav-number">5.</span> <span class="nav-text">第五章 高质量的Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript的分层概念和javascript库"><span class="nav-number">5.1.</span> <span class="nav-text">Javascript的分层概念和javascript库</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
