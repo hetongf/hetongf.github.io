@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="第一章ECMAScripts就是JavaScript BOM(浏览器对象模型）JavaScript操控web浏览器的手段 第二章JavaScript 是 用编译型语言编写的代码有错误，这些错误再代码编译阶段发现，而解释型原因只能等到解释器执行到有关代码时才能被发现。 单词“happy”是JavaScript语言中的一个字面量 literal 必须类型声明的是强类型，任意阶段改变变量是弱类型 单引号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Dom编程艺术">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/JavaScript-Dom%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章ECMAScripts就是JavaScript BOM(浏览器对象模型）JavaScript操控web浏览器的手段 第二章JavaScript 是 用编译型语言编写的代码有错误，这些错误再代码编译阶段发现，而解释型原因只能等到解释器执行到有关代码时才能被发现。 单词“happy”是JavaScript语言中的一个字面量 literal 必须类型声明的是强类型，任意阶段改变变量是弱类型 单引号">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-26T06:59:41.000Z">
+<meta property="article:modified_time" content="2020-05-26T08:47:05.701Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/26/JavaScript-Dom编程艺术/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title>JavaScript Dom编程艺术 | Hexo</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/26/JavaScript-Dom%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/" itemprop="url">JavaScript Dom编程艺术</a></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript Dom编程艺术</h1>
         
 
         <div class="post-meta">
@@ -298,9 +299,7 @@
       
 
       
-        
-          
-            <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>ECMAScripts就是JavaScript</p>
+        <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>ECMAScripts就是JavaScript</p>
 <p>BOM(浏览器对象模型）<br>JavaScript操控web浏览器的手段</p>
 <h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>JavaScript 是 用编译型语言编写的代码有错误，这些错误再代码编译阶段发现，而解释型原因只能等到解释器执行到有关代码时才能被发现。</p>
 <p>单词“happy”是JavaScript语言中的一个字面量 literal</p>
@@ -578,8 +577,6 @@
 <p>正则表达式头尾都有一个斜杠 /</p>
 <p>在两个article之间是一个捕获组，方括号包含了要匹配的字符，圆括号定义的捕获组为了便于后面提取其中的匹配的内容。\s匹配任意空白字符，\S匹配任意非空白字符，包括回车符和换行符，（+）表示前面的模式重复了一次或者多次。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function submitFormWithAjax(whichform, thetarget)&#123;</span><br><span class="line">  var request &#x3D; new XMLHttpRequest();</span><br><span class="line">  if(!request) return false;</span><br><span class="line">  displayAjaxLoading(thetarget);</span><br><span class="line">  var dataParts &#x3D; [];</span><br><span class="line">  var element;</span><br><span class="line">  for(var i&#x3D;0; i&lt;whichform.elements.length;i++)&#123;</span><br><span class="line">    element &#x3D; whichform.elements[i];</span><br><span class="line">    dataParts[i] &#x3D; element.name + &#39;&#x3D;&#39; +encodeURIComponent(element.value);</span><br><span class="line">  &#125;</span><br><span class="line">  var data &#x3D; dataParts.join(&#39;&amp;&#39;);</span><br><span class="line">  request.open(&#39;POST&#39;, whichform.getAttribute(&quot;action&quot;),true);</span><br><span class="line">  request.setRequestHeader(&quot;Content-type&quot;, &quot;application&#x2F;x-www-form-urlencoded&quot;);</span><br><span class="line">  request.onreadystatechange &#x3D; function()&#123;</span><br><span class="line">      if(request.readyState &#x3D;&#x3D; 4)&#123;</span><br><span class="line">        if(request.status &#x3D;&#x3D; 200 || request.status &#x3D;&#x3D;0)&#123;</span><br><span class="line">          var matchs &#x3D; request.responseText.match(&#x2F;&lt;article&gt;([\s\S]+)&lt;\&#x2F;article&gt;&#x2F;);</span><br><span class="line">          if (matchs.length&gt;0)&#123;</span><br><span class="line">            thetarget.innerHTML &#x3D; matchs[1];</span><br><span class="line">          &#125;else &#123;</span><br><span class="line">            thetarget.innerHTML &#x3D; &#39;&lt;p&gt;Oops, there was an error.Sorry&lt;&#x2F;p&gt;&#39;;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">          thetarget.innerHTML &#x3D; &#39;&lt;p&gt;&#39;+request.statusText+&#39;&lt;&#x2F;p&gt;&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  request.send(data);</span><br><span class="line">  return true;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -596,136 +593,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/23/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/23/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/" itemprop="url">编写高质量代码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-23T16:13:37+08:00">
-                2020-04-23
-              </time>
+              <a href="/2020/04/23/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/" rel="next" title="编写高质量代码">
+                <i class="fa fa-chevron-left"></i> 编写高质量代码
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>《编写高质量代码——Web前端开发修炼之道》读书笔记</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/23/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -735,630 +624,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/Html5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/17/Html5/" itemprop="url">Html5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T18:44:24+08:00">
-                2020-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>HTML5的基础知识</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/17/Html5/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/CSS%E6%8F%AD%E7%A7%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/17/CSS%E6%8F%AD%E7%A7%98/" itemprop="url">CSS揭秘</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T18:39:15+08:00">
-                2020-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>《CSS揭秘》读书笔记</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/17/CSS%E6%8F%AD%E7%A7%98/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/CSS%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/17/CSS%E5%9F%BA%E7%A1%80/" itemprop="url">CSS基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T18:37:52+08:00">
-                2020-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>CSS的基础知识</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/17/CSS%E5%9F%BA%E7%A1%80/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/CSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/17/CSS/" itemprop="url">CSS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T17:06:37+08:00">
-                2020-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>《精通CSS——高级Web标准解决方案》读书笔记</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/17/CSS/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/HTML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/17/HTML/" itemprop="url">HTML基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-17T15:58:55+08:00">
-                2020-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>HTML的基础知识</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/17/HTML/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1366,6 +636,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1386,8 +660,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1429,6 +712,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章"><span class="nav-number">3.</span> <span class="nav-text">第三章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-JavaScript-图片库"><span class="nav-number">4.</span> <span class="nav-text">第四章 JavaScript 图片库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章"><span class="nav-number">5.</span> <span class="nav-text">第五章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进增强："><span class="nav-number">5.1.</span> <span class="nav-text">渐进增强：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向后兼容"><span class="nav-number">5.2.</span> <span class="nav-text">向后兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能考虑"><span class="nav-number">5.3.</span> <span class="nav-text">性能考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并脚本："><span class="nav-number">5.4.</span> <span class="nav-text">合并脚本：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章"><span class="nav-number">6.</span> <span class="nav-text">第六章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三元操作符"><span class="nav-number">6.1.</span> <span class="nav-text">三元操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Css"><span class="nav-number">6.2.</span> <span class="nav-text">Css</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章"><span class="nav-number">7.</span> <span class="nav-text">第七章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#document-write"><span class="nav-number">7.1.</span> <span class="nav-text">document.write</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">7.2.</span> <span class="nav-text">Ajax</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章"><span class="nav-number">8.</span> <span class="nav-text">第八章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九章"><span class="nav-number">9.</span> <span class="nav-text">第九章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三位一体的网页"><span class="nav-number">9.1.</span> <span class="nav-text">三位一体的网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取样式"><span class="nav-number">9.2.</span> <span class="nav-text">获取样式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十章"><span class="nav-number">10.</span> <span class="nav-text">第十章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#absolute"><span class="nav-number">10.1.</span> <span class="nav-text">absolute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fixed"><span class="nav-number">10.2.</span> <span class="nav-text">fixed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relative"><span class="nav-number">10.3.</span> <span class="nav-text">relative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static"><span class="nav-number">10.4.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sticky"><span class="nav-number">10.5.</span> <span class="nav-text">sticky</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inherit"><span class="nav-number">10.6.</span> <span class="nav-text">inherit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间-setTimeout-用法"><span class="nav-number">10.7.</span> <span class="nav-text">时间 setTimeout()  用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何插入图片"><span class="nav-number">10.8.</span> <span class="nav-text">如何插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十一章"><span class="nav-number">11.</span> <span class="nav-text">第十一章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas"><span class="nav-number">11.0.1.</span> <span class="nav-text">Canvas</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音频与视频"><span class="nav-number">11.1.</span> <span class="nav-text">音频与视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">11.2.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5其他功能"><span class="nav-number">11.3.</span> <span class="nav-text">HTML5其他功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十二章"><span class="nav-number">12.</span> <span class="nav-text">第十二章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#头部导航用nav标签加上列表"><span class="nav-number">12.1.</span> <span class="nav-text">头部导航用nav标签加上列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于css选择器"><span class="nav-number">12.2.</span> <span class="nav-text">关于css选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他css"><span class="nav-number">12.3.</span> <span class="nav-text">其他css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">12.4.</span> <span class="nav-text">正则表达式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1562,6 +861,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
